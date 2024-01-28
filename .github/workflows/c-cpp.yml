@@ -17,13 +17,11 @@ jobs:
       run: sudo apt install -y build-essential cmake libboost-all-dev
     - name: "install dependecies"
       run: sudo apt install -y libasound2-dev libpulse-dev libvorbisidec-dev libvorbis-dev libopus-dev libflac-dev libsoxr-dev alsa-utils libavahi-client-dev avahi-daemon libexpat1-dev
-    - name: ls
-      run: ls
     - name: mkdir build
       run: mkdir build
     - name: cd build
       run: cd build
     - name: cmake
-      run: cmake ..
+      run: cmake ./..
     - name: cmake build
       run: cmake --build .
