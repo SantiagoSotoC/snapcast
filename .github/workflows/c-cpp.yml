@@ -18,6 +18,11 @@ jobs:
     - name: "install dependecies"
       run: sudo apt install -y libasound2-dev libpulse-dev libvorbisidec-dev libvorbis-dev libopus-dev libflac-dev libsoxr-dev alsa-utils libavahi-client-dev avahi-daemon libexpat1-dev
     - name: "Create build directory and run CMake"
-      run: cmake -S . -B build -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+      run: cmake -S . -B build -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_CLIENT=OFF
     - name: "Build Project" 
-      run: cmake --build build --target all --config Release -- -j4 
+      run: cmake --build build --target all --config Release -- -j4
+    - name: "cd build" 
+      run: cd build
+    - name: "ls build" 
+      run: ls build
+    
