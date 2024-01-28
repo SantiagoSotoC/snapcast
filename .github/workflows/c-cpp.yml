@@ -21,5 +21,9 @@ jobs:
       run: ls
     - name: mkdir build
       run: mkdir build
+    - name: cd build
+      run: cd build
     - name: cmake
+      run: cmake ..
+    - name: cmake build
       run: cmake --build .
