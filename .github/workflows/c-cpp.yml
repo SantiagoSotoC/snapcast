@@ -17,11 +17,7 @@ jobs:
       run: sudo apt install -y build-essential cmake libboost-all-dev
     - name: "install dependecies"
       run: sudo apt install -y libasound2-dev libpulse-dev libvorbisidec-dev libvorbis-dev libopus-dev libflac-dev libsoxr-dev alsa-utils libavahi-client-dev avahi-daemon libexpat1-dev
-    - name: mkdir build
-      run: mkdir build
-    - name: cd build
-      run: cd build
-    - name: cmake
-      run: cmake .. -DBUILD_CLIENT=OFF
-    - name: cmake build
-      run: cmake --build .
+    - name: "Create build directory and run CMake"
+      run: cmake -S . -B build -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+    - name: "Build Project" 
+      run: cmake --build build --target all --config Release -- -j4 
