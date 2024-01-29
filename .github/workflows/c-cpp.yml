@@ -15,8 +15,10 @@ jobs:
         include:
           - builder: ubuntu-latest
             platform: linux/amd64
+            bin:  snapserver-amd64
           - builder: ubuntu-latest
             platform: linux/arm64
+            bin:  snapserver-arm64
 
     steps:
     - uses: actions/checkout@v3
@@ -31,4 +33,8 @@ jobs:
     - name: "Build Project" 
       run: cmake --build build --target all --config Release -- -j4
     - name: "Rename binary"
-      run: mv bin/snapserver bin/snapserver-${{ matrix.platform }}
+      run: mv bin/snapserver bin/${{ matrix.bin }}
+    - name: "ls bin"
+      run: ls bin
+    
+
