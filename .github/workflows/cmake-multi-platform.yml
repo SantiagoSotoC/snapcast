@@ -46,7 +46,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
+    - name: "install dependecies"
+      run: sudo apt install -y  build-essential cmake libboost-all-dev libasound2-dev libpulse-dev libvorbisidec-dev libvorbis-dev libopus-dev libflac-dev libsoxr-dev alsa-utils libavahi-client-dev avahi-daemon libexpat1-dev
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
       id: strings
