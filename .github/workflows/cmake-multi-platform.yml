@@ -4,7 +4,7 @@ name: CMake on multiple platforms
 
 on:
   release:
-    types: [published]
+    types: [created]
 
 jobs:
   build:
