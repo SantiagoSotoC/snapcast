@@ -57,6 +57,7 @@ jobs:
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        -DBUILD_CLIENT=OFF
         -S ${{ github.workspace }}
 
     - name: Build
@@ -73,4 +74,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: snapcast_${{ matrix.arch}}-${{ github.sha }}
-        path: ${{ steps.strings.outputs.bin-dir }}/snapserver
+        path: ${{ steps.strings.outputs.bin-dir }}/
